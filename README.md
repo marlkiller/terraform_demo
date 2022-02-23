@@ -20,7 +20,7 @@ terraform destroy
 # 删除资源
 
 
-
+```
 resource "azurerm_subnet" "subnet" {
     name                 = "royTFSubnet"
     resource_group_name  = "${azurerm_resource_group.rg.name}"
@@ -28,14 +28,18 @@ resource "azurerm_subnet" "subnet" {
     address_prefix       = "10.0.1.0/24"
     #address_prefix       = "${cidrsubnet(var.cluster_cidr, 8, 10)}"
 }
+```
 
 # DataSource 的作用可以通过输入一个资源的变量名，然后获得这个变量的其他属性字段
+```
 data "azurerm_virtual_network" "test" {
   name                = "production"
   resource_group_name = "networking"
 }
+```
 
 # Data 可用挂在远程state
+```
 output "cluster_arn" {
   description = "MSK Cluster ARN"
   value       = aws_msk_cluster.msk.arn
@@ -51,3 +55,4 @@ data "terraform_remote_state" "backend" {
   }
 }
 current_cluster_arn                  = data.terraform_remote_state.backend.outputs.cluster_arn
+```
