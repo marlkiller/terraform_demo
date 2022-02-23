@@ -1,23 +1,23 @@
 
 terraform init
-# 下载依赖项
+## 下载依赖项
 
 terraform fmt
-# 格式化.tf 文件
+## 格式化.tf 文件
 
 terraform apply
-# terraform apply -var "vpc_name=YetAnotherName" 指定变量
-# 创建资源
+### terraform apply -var "vpc_name=YetAnotherName" 指定变量
+## 创建资源
 
 terraform show
-# 检查状态
-# 应用配置时，Terraform 将数据写入名为 terraform.tfstate. Terraform 将其管理的资源的 ID 和属性存储在此文件中，以便以后可以更新或销毁这些资源。
+## 检查状态
+## 应用配置时，Terraform 将数据写入名为 terraform.tfstate. Terraform 将其管理的资源的 ID 和属性存储在此文件中，以便以后可以更新或销毁这些资源。
 
 terraform output
-# 查询输出
+## 查询输出
 
 terraform destroy
-# 删除资源
+## 删除资源
 
 
 ```
@@ -30,7 +30,7 @@ resource "azurerm_subnet" "subnet" {
 }
 ```
 
-# DataSource 的作用可以通过输入一个资源的变量名，然后获得这个变量的其他属性字段
+## DataSource 的作用可以通过输入一个资源的变量名，然后获得这个变量的其他属性字段
 ```
 data "azurerm_virtual_network" "test" {
   name                = "production"
@@ -38,7 +38,7 @@ data "azurerm_virtual_network" "test" {
 }
 ```
 
-# Data 可用挂在远程state
+## Data 可用挂在远程state
 ```
 output "cluster_arn" {
   description = "MSK Cluster ARN"
